@@ -1,0 +1,111 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Gaming + Cricket Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Gaming Dark Theme */
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+    
+    /* Cricket Green System */
+    --cricket-primary: 142 76% 36%;
+    --cricket-primary-foreground: 220 14% 96%;
+    --cricket-secondary: 142 35% 15%;
+    --cricket-accent: 142 82% 55%;
+    
+    /* Gaming Gold/Neon System */
+    --gaming-gold: 43 96% 56%;
+    --gaming-gold-foreground: 222 47% 4%;
+    --gaming-blue: 217 91% 60%;
+    --gaming-purple: 270 91% 65%;
+    
+    /* UI System */
+    --card: 222 35% 8%;
+    --card-foreground: 210 40% 95%;
+    --popover: 222 35% 8%;
+    --popover-foreground: 210 40% 95%;
+    
+    --primary: 142 76% 36%;
+    --primary-foreground: 220 14% 96%;
+    --secondary: 222 35% 12%;
+    --secondary-foreground: 210 40% 95%;
+    
+    --muted: 222 35% 12%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 142 82% 55%;
+    --accent-foreground: 222 47% 4%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 222 35% 15%;
+    --input: 222 35% 12%;
+    --ring: 142 82% 55%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(142 76% 36% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(43 96% 56% / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(217 91% 60% / 0.05) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  /* Gaming Button Variants */
+  .btn-cricket {
+    @apply bg-gradient-to-r from-cricket-primary to-cricket-accent text-cricket-primary-foreground font-bold px-6 py-3 rounded-xl shadow-lg;
+    @apply hover:shadow-cricket-accent/50 hover:shadow-2xl transform hover:scale-105 transition-all duration-300;
+    @apply border border-cricket-accent/30 hover:border-cricket-accent/60;
+  }
+  
+  .btn-gaming {
+    @apply bg-gradient-to-r from-gaming-gold to-gaming-blue text-gaming-gold-foreground font-bold px-6 py-3 rounded-xl shadow-lg;
+    @apply hover:shadow-gaming-gold/50 hover:shadow-2xl transform hover:scale-105 transition-all duration-300;
+  }
+  
+  .btn-outline-neon {
+    @apply border-2 border-cricket-accent bg-transparent text-cricket-accent font-bold px-6 py-3 rounded-xl;
+    @apply hover:bg-cricket-accent hover:text-cricket-primary-foreground shadow-lg hover:shadow-cricket-accent/30;
+    @apply transition-all duration-300 hover:scale-105;
+  }
+  
+  /* Gaming Cards */
+  .card-gaming {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6;
+    @apply shadow-xl hover:shadow-2xl hover:shadow-cricket-accent/10 transition-all duration-300;
+    @apply hover:border-cricket-accent/30 hover:bg-card/90;
+  }
+  
+  /* Neon Text Effects */
+  .text-neon-green {
+    @apply text-cricket-accent;
+    text-shadow: 0 0 10px hsl(142 82% 55% / 0.5);
+  }
+  
+  .text-neon-gold {
+    @apply text-gaming-gold;
+    text-shadow: 0 0 10px hsl(43 96% 56% / 0.5);
+  }
+  
+  /* Gaming Backgrounds */
+  .bg-gaming-gradient {
+    background: linear-gradient(135deg, hsl(222 47% 4%) 0%, hsl(222 35% 8%) 50%, hsl(222 47% 4%) 100%);
+  }
+  
+  .bg-cricket-gradient {
+    background: linear-gradient(135deg, hsl(142 35% 15%) 0%, hsl(142 76% 36% / 0.1) 50%, hsl(142 35% 15%) 100%);
+  }
+}
